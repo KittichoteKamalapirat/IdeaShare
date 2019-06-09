@@ -1,13 +1,23 @@
 const express = require('express');
 const connectDB = require('./config/db');
-
+const path = require('path');
+const exphbs = require('express-handlebars');
 const app = express();
-connectDB();
+// connectDB();
 
 //Init middleware
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send('API Running'));
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+// Set a static folder
+// app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static('public'));
+
+app.get('/', (req, res) => res.render('index'));
+app.get('/register', (req, res) => res.render('register'));
+
+app.get('/post', (req, res) => res.render('post'));
 
 //Define Routes
 // Pertain the /api/users to the / in routes/api/users

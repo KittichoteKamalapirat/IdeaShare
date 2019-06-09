@@ -6,6 +6,15 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator/check');
 const User = require('../../models/User');
+
+// @ route    GET api/users
+// @desc      Get a regsiter form
+// @access    Public
+
+router.get('/register', (req, res) => {
+  res.render('register');
+});
+
 // @ route    POST api/users
 // @desc      Register User
 // @access    Public
