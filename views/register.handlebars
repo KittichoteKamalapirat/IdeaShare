@@ -2,30 +2,21 @@
     <div class="vertical-align">
         <div class="register-form">
             <h1>Create your account</h1>
-            <form class="form" action="index">
+            <form class="form" action="/api/users" method="post">
                 <div class="form-group">
-                    <input type="text" placeholder="Name" requried>
+                    <input name="name" type="text" placeholder="Name" requried>
                 </div>
 
                 <div class="form-group">
-                    <input type="email" placeholder="E-mail">
+                    <input name="email" type="email" placeholder="E-mail">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" placeholder="Password" minlength="6">
+                    <input name="password" type="text" placeholder="Password" minlength="6">
                 </div>
-
-                <div class="form-group">
-                    <input type="text" placeholder="Confirm Password" min-length="6">
-                </div>
-
                 <input type="submit" value="Create account" class="button green-button" />
-                <p>Already have an account? <a href="/signin">Sign in</a></p>
-
-
-
-
             </form>
+            <p>Already have an account? <a href="/signin">Sign in</a></p>
         </div>
     </div>
 </div>

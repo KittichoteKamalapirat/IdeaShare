@@ -5,6 +5,7 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const Profile = require('../../models/Profile');
 const Post = require('../../models/Post');
+const moment = require('moment');
 
 const router = express.Router();
 
@@ -54,7 +55,12 @@ router.get('/', async (req, res) => {
     //no need to populate because the name and avatar are already in the post model
     const posts = await Post.find().sort({ date: -1 });
     // res.json(posts);
+    for (let i = 0; i < posts.length; i++) {
+      moment(posts[i].date).format();
+    }
+
     console.log(posts);
+
     res.render('posts', { posts });
   } catch (err) {
     console.error(err.message);

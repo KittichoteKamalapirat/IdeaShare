@@ -27,17 +27,17 @@ router.post(
     check('email', 'Please include a valid email').isEmail(),
     check(
       'password',
-      ' Please enter a password with 6 ot more characters'
+      ' Please enter a password with 6 or more characters'
     ).isLength({ min: 6 })
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log(req.body);
       return res.status(400).json({
         errors: errors.array()
       });
     }
-
     const { name, email, password } = req.body;
 
     try {
@@ -81,6 +81,8 @@ router.post(
         (err, token) => {
           if (err) throw err;
           res.json({ token });
+          // req.flash('You seccessfully registered your account');
+          // res.redirect('/user/login');
         }
       );
     } catch (err) {
