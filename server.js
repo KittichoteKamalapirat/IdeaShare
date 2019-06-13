@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
 const app = express();
 
 // for auto reload
@@ -11,6 +12,8 @@ connectDB();
 
 //Init middleware
 app.use(express.json()); // parses application/json
+// parse the cookie
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true })); // parses application/x-www-form-urlencoded
 
 app.engine('handlebars', exphbs());
@@ -30,6 +33,9 @@ app.get('/post', (req, res) => res.render('post'));
 //Define Routes
 // Pertain the /api/users to the / in routes/api/users
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/users', (req, res) => {
+  const token = req.cookies.x_auth_token;
+});
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));

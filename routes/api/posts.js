@@ -6,8 +6,8 @@ const User = require('../../models/User');
 const Profile = require('../../models/Profile');
 const Post = require('../../models/Post');
 const moment = require('moment');
-
 const router = express.Router();
+
 
 // @ route    POST api/posts
 // @desc      Create a post

@@ -33,7 +33,6 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log(req.body);
       return res.status(400).json({
         errors: errors.array()
       });
@@ -79,8 +78,10 @@ router.post(
         config.get('jwtSecret'),
         { expiresIn: 60 * 60 * 100 },
         (err, token) => {
-          if (err) throw err;
+          // window.localStorage.setItem('x-auth-token', token);
+          res.cookie('x_auth_token', token);
           res.json({ token });
+          // res.cookie('x-auth-token', token);
           // req.flash('You seccessfully registered your account');
           // res.redirect('/user/login');
         }

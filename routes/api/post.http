@@ -1,0 +1,8 @@
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+x_auth_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQwMTU5ZDQzZDg4OTUyMWFjYzJlNGEwIn0sImlhdCI6MTU2MDM2OTYyMSwiZXhwIjoxNTYwNzI5NjIxfQ.PEmn0mRJ5tyZn5_RmHKrEps_Hs2Y-jwZKpcPUhE3ZvI"
+
+{
+    "title": "shane",
+    "body": "qwedaar@gmail.com"
+}
