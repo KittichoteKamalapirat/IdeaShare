@@ -6,16 +6,16 @@
         <div class="idea">
             <div class="idea-user">
                 <a href=""><img src="/images/john.png" alt="{{avatar}}"></a>
-                <p>{{this.name}}</p>
+                <p class="name">{{this.name}}</p>
             </div>
 
             <div class="idea-content">
                 <h3 class="idea-title">{{this.title}}</h3>
 
                 <div class="idea-details">
-                    <img class="svg" src="/images/clock.svg" alt="{{this.avatar}}">
+                    <i class="fa fa-clock"></i>
                     <span>{{this.date}}</span>
-                    <img class="svg" src="/images/comment.svg" alt="{{avatar}}">
+                    <i class="fas fa-comments"></i>
 
                     <span>{{this.comments.length}} comments</span>
                 </div>
@@ -23,18 +23,18 @@
 
             <div class="idea-likes">
                 <div class="vote-box">
-                    <i class=" fa fa-sort-up"></i>
+                    <i class="fa fa-caret-up fa-2x"></i>
                     <p>{{this.likes.length}}</p>
                 </div>
             </div>
         </div>
-        {{/each}}`
+        {{/each}}
     </section>
 
-    <section class=" recommendation">
+    <section class="recommendation">
         <h3>Ideas of the week</h3>
         <ul>
-            <li>this is the topic of the best one yeay</li>
+            <li><span>this is the topic of the best one yeay</span> <i class="fa fa-caret-up fa-1x"></i></li>
             <li>this is the topic of the second best one okay !</li>
             <li>Hre is the first one this osijtaofar</li>
             <li>lpreno soitjaio is the ocldl jgoaijra</li>

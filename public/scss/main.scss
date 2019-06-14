@@ -4,6 +4,8 @@ $dark-grey: #1a1a1a;
 $light-grey: #808080;
 $body-bg: #f2f2f2;
 $navbar-color: white;
+$light-border: 1px solid rgba(153, 153, 153, 0.5);
+$action-green: #39b54a;
 
 $main-font: 'Arial', sans-serif;
 
@@ -65,18 +67,102 @@ a {
 }
 
 // Home page Posts section
+/* homepage */
+
+.main-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 'posts recommendation' 'posts category';
+  grid-template-columns: 10fr 4fr;
+  margin-top: 1rem;
+}
+.posts {
+  grid-area: posts;
+  .idea-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* an idea */
+
+  .idea {
+    display: grid;
+    grid-template-columns: 2fr 9fr 2fr;
+    grid-template-areas: 'idea-user idea-content idea-likes';
+    padding: 0.5rem 1rem;
+    border: $light-border;
+    border-collapse: collapse;
+    background-color: white;
+    .idea-content {
+      margin: 0.5rem;
+    }
+    .idea-user {
+      text-align: center;
+      padding-top: 0.5rem;
+      .name {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .vote-box {
+    border: $light-border;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+section.recommendation {
+  grid-area: recommendation;
+  padding: 2rem;
+  background-color: white;
+  li {
+    border-bottom: $light-border;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    i {
+      background-color: $action-green;
+      text-align: center;
+      color: white;
+      padding-top: 0.3rem;
+      padding-bottom: 0.2rem;
+      padding: 0.1rem 1rem 0.2rem 1rem;
+      border-radius: 0.2rem;
+    }
+  }
+}
+
+section.category {
+  grid-area: category;
+  padding: 2rem;
+  border: 1px solid rgba(153, 153, 153, 0.5);
+  background-color: white;
+}
+
+.main-grid ul {
+  list-style: none;
+  li {
+    line-height: 1.5;
+  }
+}
+
+.svg {
+  width: 1.5rem;
+}
 
 // modal box
-.height-container {
-  height: 100vh;
-}
+// .height-container {
+//   height: 100vh;
+// }
 
-.vertical-align {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+// .vertical-align {
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }
 
 /* Post the Idea form */
 
@@ -120,145 +206,145 @@ textarea {
   border: 1px solid #ccc;
 }
 
-/* homepage */
+// Register Model
 
-.main-grid {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-areas: 'posts posts posts recommendation' 'posts posts posts category';
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 1rem;
+/* Register, Login form */
+
+.register-form input[type='text'],
+input[type='email'],
+input[type='password'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  margin: 2rem 0;
+  border-radius: 0.3rem;
+  border: 1px solid #ccc;
 }
 
-.idea-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
 
-/* an idea */
-
-.idea {
-  display: grid;
-  grid-template-columns: 1fr 9fr 2fr;
-  grid-template-areas: 'idea-user idea-content idea-likes';
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(182, 79, 79, 0.5);
-  border-collapse: collapse;
-  background-color: white;
-  .idea-content {
-    margin: 0.5rem;
-  }
-}
-
-.vote-box {
-  border: 1px solid rgba(153, 153, 153, 0.5);
-  text-align: center;
-  padding: 1rem;
-}
-
-#arrow {
-  width: 2rem;
-}
-
-.recommendation {
-  grid-area: recommendation;
-  padding: 2rem;
-  border: 1px solid rgba(153, 153, 153, 0.5);
-  background-color: white;
-}
-
-.category {
-  grid-area: category;
-  padding: 2rem;
-  border: 1px solid rgba(153, 153, 153, 0.5);
-  background-color: white;
-}
-
-.main-grid ul {
-  list-style: none;
-  li {
-    line-height: 1.5;
-  }
-}
-
-.svg {
-  width: 1.5rem;
-}
-
-@media screen and (max-width: 720px) {
-  .main-grid {
-    display: block;
-  }
-  .idea {
+  .register-form {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-areas: 'idea-user idea-content idea-likes';
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5rem;
+    min-width: 500px;
+    width: 50%;
+    background-color: white;
+    position: relative;
+    .close {
+      position: absolute;
+      font-size: 3rem;
+      right: 1rem;
+      top: 0, 5rem;
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+    .button {
+      font-size: 1rem;
+      padding: 0.5rem 2rem;
+      border-radius: 0.3rem;
+    }
+    .green-button {
+      color: white;
+      width: 100%;
+      background-color: rgb(0, 187, 101);
+    }
+    p {
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    a {
+      color: black;
+      text-decoration: underline;
+    }
   }
 }
+// @media screen and (max-width: 720px) {
+//   .main-grid {
+//     display: block;
+//   }
+//   .idea {
+//     display: grid;
+//     grid-template-columns: 1fr 5fr 1fr;
+//     grid-template-areas: 'idea-user idea-content idea-likes';
+//   }
+// }
 
-/* homepage */
+// /* homepage */
 
-.main-grid {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-areas: 'posts posts posts recommendation' 'posts posts posts category';
-  grid-template-columns: repeat(4, 1fr);
-}
+// .main-grid {
+//   display: grid;
+//   grid-gap: 20px;
+//   grid-template-areas: 'posts posts posts recommendation' 'posts posts posts category';
+//   grid-template-columns: 7fr 2fr;
+// }
 
-.posts {
-  grid-area: posts;
-}
+// .posts {
+//   grid-area: posts;
+// }
 
-.idea-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+// .idea-content {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+// }
 
-/* an idea */
+// /* an idea */
 
-.idea {
-  display: grid;
-  grid-template-columns: 1fr 9fr 2fr;
-  grid-template-areas: 'idea-user idea-content idea-likes';
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(153, 153, 153, 0.5);
-  border-collapse: collapse;
-  background-color: white;
-}
+// .idea {
+//   display: grid;
+//   grid-template-columns: 1fr 9fr 2fr;
+//   grid-template-areas: 'idea-user idea-content idea-likes';
+//   padding: 0.5rem 1rem;
+//   border: 1px solid rgba(153, 153, 153, 0.5);
+//   border-collapse: collapse;
+//   background-color: white;
+// }
 
-.vote-box {
-  border: 1px solid rgba(153, 153, 153, 0.5);
-  text-align: center;
-  padding: 1rem;
-}
+// .vote-box {
+//   border: 1px solid rgba(153, 153, 153, 0.5);
+//   text-align: center;
+//   padding: 1rem;
+// }
 
-#arrow {
-  width: 2rem;
-}
+// #arrow {
+//   width: 2rem;
+// }
 
-.recommendation {
-  grid-area: recommendation;
-  padding: 2rem;
-  border: 1px solid rgba(153, 153, 153, 0.5);
-  background-color: white;
-}
+// .recommendation {
+//   grid-area: recommendation;
+//   padding: 2rem;
+//   border: 1px solid rgba(153, 153, 153, 0.5);
+//   background-color: white;
+// }
 
-.category {
-  grid-area: category;
-  padding: 2rem;
-  border: 1px solid rgba(153, 153, 153, 0.5);
-  background-color: white;
-}
+// .category {
+//   grid-area: category;
+//   padding: 2rem;
+//   border: 1px solid rgba(153, 153, 153, 0.5);
+//   background-color: white;
+// }
 
-.main-grid ul {
-  list-style: none;
-  li {
-    line-height: 1.5;
-  }
-}
+// .main-grid ul {
+//   list-style: none;
+//   li {
+//     line-height: 1.5;
+//   }
+// }
 
-.svg {
-  width: 1.5rem;
-}
+// .svg {
+//   width: 1.5rem;
+// }
